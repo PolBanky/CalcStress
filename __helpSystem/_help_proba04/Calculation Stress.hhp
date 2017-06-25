@@ -1,0 +1,21 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Calculation Stress.chm
+Contents file=Table of Contents_04.hhc
+Default topic=calc_10.htm
+Display compile progress=No
+Full-text search=Yes
+Language=0x419 Русский (Россия)
+Title=Расчеты на прочность
+
+
+[FILES]
+calc_10.htm
+calc_11.htm
+calc_12.htm
+calc_13.htm
+calc_14.htm
+calc_15.htm
+
+[INFOTYPES]
+

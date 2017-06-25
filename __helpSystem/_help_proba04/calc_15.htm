@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<TITLE>METODIKA</TITLE>
+
+<style>
+			.greek {
+				font-size: 1.3em;
+				color: #ff0000;
+			}
+
+			.marquee {
+				font: 1.5em Arial, 'Times New Roman';
+				color: #ff0000;				
+			}
+		</style>
+
+</HEAD>
+
+<!-- Сверху это заголовок файла, а ниже то что выводится в окне справки -->
+
+<BODY BACKGROUND = "recbg.jpeg">
+<H2>5. Методика расчетов напряжения в детали.	</H2>
+
+<MARQUEE scrollamount=25 scrolldelay=500 behavior=alternate><span class="marquee">.....Переход по ссылкам!..........Переход по ссылкам!..........Переход по ссылкам!.....</span></MARQUEE>
+
+<a href="#area"> Площадь сечения фигуры </a> <BR>
+<a href="#moment"> Момент сопротивления сечения </a> <BR>
+<a href="#stress"> Напряжение в детали </a>	<BR>
+<BR>
+<hr width="50%" align="left" size=10em />
+<BR>
+
+<table border="2">
+			<tr>
+				<th width="50"><span class="greek">&pi;</span></th>
+				<td>- число Пи = 3,14159 </td>
+				<td width="60"></td>
+			</tr>
+			<tr>
+				<th>d_ex</th>
+				<td>- диаметр наружный</td>
+				<td>мм</td>
+			</tr>
+			<tr>
+				<th>d_in</th>
+				<td>- диаметр внутренний</td>
+				<td>мм</td>
+			</tr>
+			<tr>
+				<th>b_ex</th>
+				<td>- ширина наружная</td>
+				<td>мм</td>
+			</tr>
+			<tr>
+				<th>h_ex</th>
+				<td>- высота наружная</td>
+				<td>мм</td>
+			</tr>
+			<tr>
+				<th>b_in</th>
+				<td>- ширина внутренняя</td>
+				<td>мм</td>
+			</tr>
+			<tr>
+				<th>h_in</th>
+				<td>- высота внутренняя</td>
+				<td>мм</td>
+			</tr>
+			<tr>
+				<th>S</th>
+				<td>- площадь сечения</td>
+				<td>мм<sup>2</sup></td>
+			</tr>
+			<tr>
+				<th>Wx</th>
+				<td>- момент сопротивления осевой</td>
+				<td>мм<sup>3</sup></td>
+			</tr>
+			<tr>
+				<th>Wp</th>
+				<td>- момент сопротивления полярный</td>
+				<td>мм<sup>3</sup></td>
+			</tr>
+			<tr>
+				<th>F</th>
+				<td>- сила</td>
+				<td>N</td>
+			</tr>
+			<tr>
+				<th>L</th>
+				<td>- длина</td>
+				<td>мм</td>
+			</tr>
+			<tr>
+				<th>M</th>
+				<td>- момент силы</td>
+				<td>N*Metr</td>
+			</tr>
+			<tr>
+				<th><span class="greek">&sigma;</span></th>
+				<td>- напряжение нормальное</td>
+				<td>MPa</td>
+			</tr>
+			<tr>
+				<th><span class="greek">&tau;</span></th>
+				<td>- напряжение касательное</td>
+				<td>MPa</td>
+			</tr>
+		</table>
+<BR>
+<hr width="50%" align="left" size=10em />
+<H3 id="area"> 5.1.  Площадь сечения круга.	</H3>
+5.1.1.   S = <span class="greek">&pi;</span> * d_ex<sup>2</sup> / 4		<BR>
+<H3>5.2.  Площадь сечения круглой трубы.				</H3>
+5.2.1.   S = (<span class="greek">&pi;</span> * d_ex<sup>2</sup> / 4) - (<span class="greek">&pi;</span> * d_in<sup>2</sup> / 4)	<BR>
+<H3>5.3.  Площадь сечения прямоугольника.		</H3>
+5.3.1.   S = b_ex * h_ex					<BR>
+<H3>5.4.  Площадь сечения прямоугольной трубы.	</H3>
+5.4.1.   S = (b_ex * h_ex) - (b_in * h_in)		<BR>
+<BR>
+<hr width="50%" align="left" size=10em />
+<H3 id="moment"> 5.5.  Момент сопротивления круга осевой.	</H3>
+5.5.1.   Wx = <span class="greek">&pi;</span> * d_ex<sup>3</sup> / 32		<BR>
+<H3>5.6.  Момент сопротивления круга полярный.	</H3>
+5.6.1.   Wp = <span class="greek">&pi;</span> * d_ex<sup>3</sup> / 16		<BR>
+<H3>5.7.  Момент сопротивления круглого кольца осевой.		</H3>
+5.7.1.   Wx = (<span class="greek">&pi;</span> * d_ex<sup>3</sup> / 32) * (1,0 - (d_in / d_ex)<sup>4</sup>)	<BR>
+<!--return Math.Pow(d_ex, 3.0) * PiDiv32 * (1.0 - Math.Pow((d_in / d_ex), 4.0))-->
+<H3>5.8.  Момент сопротивления круга полярный.			</H3>
+5.8.1.   Wp = (<span class="greek">&pi;</span> * d_ex<sup>3</sup> / 16) * (1,0 - (d_in / d_ex)<sup>4</sup>)	<BR>
+<H3>5.9.  Момент сопротивления прямоугольника осевой.		</H3>
+5.9.1.   Wx = (b_ex * h_ex<sup>2</sup>) / 6,0				<BR>
+<!--b_ex * Math.Pow(h_ex, 2.0) / 6.0-->
+<H3>5.10.  Момент сопротивления прямоугольника полярный.	</H3>
+5.10.1.   Wp = alfa(h_ex / b_ex) * h_ex * b_ex<sup>2</sup>				<BR>
+<!--return alfa(h_ex / b_ex) * h_ex * Math.Pow(b_ex, 2.0)-->
+<H3>5.11.  Момент сопротивления прямоугольной трубы осевой.	</H3>
+5.11.1.  Wx = ( (b_ex * h_ex<sup>3</sup>) - (b_in * h_in<sup>3</sup>)) / (6,0 * h_ex)		<BR>
+<!--return ((b_ex * Math.Pow(h_ex, 3.0)) - (b_in * Math.Pow(h_in, 3.0))) / (6.0 * h_ex)-->
+<H3>5.12.  Момент сопротивления прямоугольной трубы полярный.</H3>
+5.12.1.   Wp = Фиг посчитаешь						<BR>
+<H3>5.13.  Момент силы. (изгиба)					</H3>
+5.13.1.   M = F * L							<BR>
+<BR>
+<hr width="50%" align="left" size=10em />
+<H3 id="stress"> 5.14.  Напряжение в детали	</H3>
+5.14.1. При растяжении...  <span class="greek">&sigma;</span> = F / S  <BR>
+5.14.2. При изгибе............  <span class="greek">&sigma;</span> = M / Wx <BR>
+5.14.3. При кручении.......  <span class="greek">&tau;</span> = M / Wp <BR>
+5.14.4. При срезе...............  <span class="greek">&sigma;</span> = F / S <BR>
+
+<BR>
+<!-- Куча BR чтобы при переходе по ссылке строка куда переход была вверху страницы -->
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+
+</P>
+</BODY>
+</HTML>

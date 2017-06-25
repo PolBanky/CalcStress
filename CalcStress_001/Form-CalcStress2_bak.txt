@@ -1,0 +1,42 @@
+﻿// Цель программы - расчет напряжений при растяжении, изгибе, кручении, срезе
+// для стержня и трубы - круглого и прямоугольного сечений
+
+//using WinLib;   // using WinLib !!!!!!!!!!!!!
+
+namespace CalcStress_002
+{
+
+    //  !!!!!!!!!!!!!!!!!!!!!!!!!!!  Form_CalcStress : aForm  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public partial class Form_CalcStress : WinLib.aForm
+    {
+
+            #region  DATA (for this class) !!!
+            // geometry
+        double d_ex = 0.0;      // Диаметр наружный, мм
+        double d_in = 0.0;      // Диаметр внутренний, мм
+        double b_ex = 0.0;      // Ширина наружная, мм
+        double b_in = 0.0;      // Ширина внутренняя, мм
+        double h_ex = 0.0;      // Высота наружная, мм
+        double h_in = 0.0;      // Высота внутренняя, мм
+        double thickness = 0.0; // Толщина стенки, мм
+        double area =    0.0;   // Площадь, мм^2
+        double axial_w = 0.0;   // Момент сопротивления осевой, мм^3
+        double polar_w = 0.0;   // Момент сопротивления полярный, мм^3
+            // force
+        double force =  0.0;    // Сила, кг
+        double stress = 0.0;    // Напряжение, MPa
+        double length = 0.0;    // Длина консоли, мм
+        double torque = 0.0;    // Крутящий момент, кг*мм
+            #endregion  DATA (for this class) !!!
+
+
+            #region  КОНСТРУКТОР !!!
+        public Form_CalcStress()
+        {
+            InitializeComponent();
+            InitializeDynamicComponent();
+        }   // end of - Form_CalcStress()
+            #endregion  КОНСТРУКТОР !!!
+
+    }       // end of - class Form_CalcStress : aForm
+}           // end of - namespace Bends_001

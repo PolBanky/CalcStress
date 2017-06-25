@@ -1,0 +1,133 @@
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+ <!-- <meta charset="windows-1251">  -->
+<TITLE>METODIKA</TITLE>
+</HEAD>
+
+<!-- Сверху это заголовок файла, а ниже то что выводится в окне справки -->
+
+<BODY>
+<H2>5. Методика расчетов напряжения в детали.	</H2>
+
+<MARQUEE><font size="5" color="red" face="Times New Roman">...........Переход по ссылкам! .......... Переход по ссылкам!.......... Переход по ссылкам!..........</font></MARQUEE>
+
+<a href="#area"> Площадь сечения фигуры </a> <BR>
+<a href="#moment"> Момент сопротивления сечения </a> <BR>
+<a href="#stress"> Напряжение в детали </a>	<BR>
+<BR>
+<hr width="50%" align="left" />
+<BR>
+<font size="+2" color="red"> &pi; </font> - число Пи = 3,14159265358979 <BR>
+d_ex	- диаметр наружный,	мм	<BR>
+d_in	- диаметр внутренний, мм<BR>
+b_ex	- ширина наружная,	мм	<BR>
+h_ex	- высота наружная,	мм	<BR>
+b_in	- ширина внутренняя, мм	<BR>
+h_in	- высота внутренняя, мм	<BR>
+S	- площадь сечения,	мм<sup>2</sup>	<BR>
+Wx	- момент сопротивления осевой,	мм<sup>3</sup>	<BR>
+Wp	- момент сопротивления полярный,	мм<sup>3</sup>	<BR>
+F	- сила, N					<BR>
+L	- длина, мм					<BR>
+M	- момент силы,	N*Metr		<BR>
+<font size="+2" color="red"> &sigma; </font> - напряжение нормальное, MPa	<BR>
+<font size="+2" color="red"> &tau;   </font> - напряжение касательное, MPa	<BR>
+<BR>
+<hr width="50%" align="left" />
+<H3 id="area"> 5.1.  Площадь сечения круга рассчитывается по формуле.	</H3>
+5.1.1.   S = <font size="+2" color="red"> &pi; </font> * d_ex<sup>2</sup> / 4		<BR>
+<H3>5.2.  Площадь сечения круглой трубы.				</H3>
+5.2.1.   S = (<font size="+2" color="red"> &pi; </font> * d_ex<sup>2</sup> / 4) - (<font size="+2" color="red"> &pi; </font> * d_in<sup>2</sup> / 4)	<BR>
+<H3>5.3.  Площадь сечения прямоугольника.		</H3>
+5.3.1.   S = b_ex * h_ex						<BR>
+<H3>5.4.  Площадь сечения прямоугольной трубы.	</H3>
+5.4.1.   S = (b_ex * h_ex) - (b_in * h_in)		<BR>
+<BR>
+<hr width="50%" align="left" />
+<H3 id="moment"> 5.5.  Момент сопротивления круга осевой.	</H3>
+5.5.1.   Wx = <font size="+2" color="red"> &pi; </font> * d_ex<sup>3</sup> / 32		<BR>
+<H3>5.6.  Момент сопротивления круга полярный.	</H3>
+5.6.1.   Wp = <font size="+2" color="red"> &pi; </font> * d_ex<sup>3</sup> / 16		<BR>
+<H3>5.7.  Момент сопротивления круглого кольца осевой.		</H3>
+5.7.1.   Wx = (<font size="+2" color="red"> &pi; </font> * d_ex<sup>3</sup> / 32) * (1.0 - (d_in / d_ex)<sup>4</sup>)	<BR>
+<!--return Math.Pow(d_ex, 3.0) * PiDiv32 * (1.0 - Math.Pow((d_in / d_ex), 4.0))-->
+<H3>5.8.  Момент сопротивления круга полярный.			</H3>
+5.8.1.   Wp = (<font size="+2" color="red"> &pi; </font> * d_ex<sup>3</sup> / 16) * (1.0 - (d_in / d_ex)<sup>4</sup>)	<BR>
+<H3>5.9.  Момент сопротивления прямоугольника осевой.		</H3>
+5.9.1.   Wx = (b_ex * h_ex<sup>2</sup>) / 6.0				<BR>
+<!--b_ex * Math.Pow(h_ex, 2.0) / 6.0-->
+<H3>5.10.  Момент сопротивления прямоугольника полярный.	</H3>
+5.10.1.   Wp = alfa(h_ex/b_ex) * h_ex * b_ex<sup>2</sup>				<BR>
+<!--return alfa(h_ex / b_ex) * h_ex * Math.Pow(b_ex, 2.0)-->
+<H3>5.11.  Момент сопротивления прямоугольной трубы осевой.	</H3>
+5.11.1.  Wx = ( (b_ex * h_ex<sup>3</sup>) - (b_in * h_in<sup>3</sup>)) / (6.0 * h_ex)		<BR>
+<!--return ((b_ex * Math.Pow(h_ex, 3.0)) - (b_in * Math.Pow(h_in, 3.0))) / (6.0 * h_ex)-->
+<H3>5.12.  Момент сопротивления прямоугольной трубы полярный.</H3>
+5.12.1.   Wp = Фиг посчитаешь						<BR>
+<H3>5.13.  Момент силы. (изгиба)					</H3>
+5.13.1.   M = F * L							<BR>
+<BR>
+<hr width="50%" align="left" />
+<H3 id="stress"> 5.14.  Напряжение в детали	</H3>
+5.14.1. При растяжении...  <font size="+2" color="red"> &sigma; </font> = F / S  <BR>
+5.14.2. При изгибе............  <font size="+2" color="red"> &sigma; </font> = M / Wx <BR>
+5.14.3. При кручении.......  <font size="+2" color="red"> &tau; </font> = M / Wp <BR>
+5.14.4. При срезе...............  <font size="+2" color="red"> &sigma; </font> = F / S <BR>
+
+<BR>
+<!-- Куча BR чтобы при переходе по ссылке строка куда переход была вверху страницы -->
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+
+</P>
+</BODY>
+</HTML>
